@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import Container from "@/components/Container"
 import getListings, { IListingParams } from "./actions/getListings"
 import getCurrentUser from "./actions/getCurrentUser";
@@ -8,13 +9,13 @@ interface HomeProps {
   searchParams: IListingParams;
 }
 
-export default async function Home({ searchParams }: HomeProps) {
+const Home = async ({ searchParams }: HomeProps) => {
   const listings = await getListings(searchParams);
   const curretUser = await getCurrentUser();
 
-  if (listings.length === 0) {
-    return <EmptyState showReset />
-  }
+  // if (listings.length === 0) {
+  //   return <EmptyState showReset />
+  // }
 
   return (
     <Container>
@@ -44,3 +45,5 @@ export default async function Home({ searchParams }: HomeProps) {
     </Container>
   )
 }
+
+export default Home;
