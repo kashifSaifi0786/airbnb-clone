@@ -88,6 +88,6 @@ export default async function getListings(params: IListingParams) {
 
     return safeListing;
   } catch (error: any) {
-    throw new Error(error);
+    return [];
   }
 }
