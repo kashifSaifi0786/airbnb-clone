@@ -12,9 +12,9 @@ const Home = async ({ searchParams }: HomeProps) => {
   const listings = await getListings(searchParams);
   const curretUser = await getCurrentUser();
 
-  // if (listings.length === 0) {
-  //   return <EmptyState showReset />
-  // }
+  if (listings.length === 0) {
+    return <EmptyState showReset />
+  }
 
   return (
     <Container>
